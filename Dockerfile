@@ -1,7 +1,8 @@
 ### Multi-stage Docker file - maven build for java ###
 
 ## Stage 1/2 - Build fat JAR file with maven
-FROM harbor.example.com/library/java/maven:3-jdk-8-slim as builder
+#FROM harbor.example.com/library/java/maven:3-jdk-8-slim as builder
+FROM docker.io/maven:3.8.6-openjdk-18-slim as builder
 
 RUN mkdir -p /build
 WORKDIR /build
@@ -19,7 +20,8 @@ RUN mvn package -DAPP_VERSION=v1.0 -DskipTests
 
 
 ## Stage 2/2 - Containerize the standalone JAR application
-FROM harbor.example.com/library/suse/sles15sp3-openjdk:11.0-3.56.1 as runtime
+#FROM harbor.example.com/library/suse/sles15sp3-openjdk:11.0-3.56.1 as runtime
+FROM registry.suse.com/bci/openjdk:11 as runtime
 EXPOSE 8080
 
 ENV APP_HOME /app
