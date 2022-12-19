@@ -28,7 +28,7 @@ spec:
   serviceAccountName: default
   containers:
   - name: maven
-    image: maven:3.8.1-openjdk-16
+    image: maven:3.8.6-openjdk-16
     command:
     - cat
     tty: true
