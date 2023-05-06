@@ -126,11 +126,10 @@ spec:
     stage('NeuVector Image Vulnerability Scan') {
       steps {
         //nv jenkins plugin conf
-        neuvector 
-        nameOfVulnerabilityToExemptOne: 'CVE-2020-36518',
-        nameOfVulnerabilityToExemptTwo: 'CVE-2022-42004',
-        nameOfVulnerabilityToExemptThree: 'CVE-2021-42550', 
-        nameOfVulnerabilityToExemptFour: 'CVE-2020-17527',
+        neuvector nameOfVulnerabilityToExemptFour: 'CVE-2020-36518',
+        nameOfVulnerabilityToExemptOne: 'CVE-2022-42004',
+        nameOfVulnerabilityToExemptThree: 'CVE-2021-42550',
+        nameOfVulnerabilityToExemptTwo: 'CVE-2020-17527',
         nameOfVulnerabilityToFailFour: '', 
         nameOfVulnerabilityToFailOne: '', 
         nameOfVulnerabilityToFailThree: '', 
