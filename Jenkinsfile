@@ -123,9 +123,23 @@ spec:
         }
       }
     }
-    stage('Image Vulnerability Scan') {
+    stage('NeuVector Image Vulnerability Scan') {
       steps {
-        neuvector numberOfHighSeverityToFail: '', numberOfMediumSeverityToFail: '5', registrySelection: 'Local', repository: "${env.HARBOR_URL}/library/samples/spring-petclinic", scanLayers: true, scanTimeout: 10, tag: "v1.0.${env.BUILD_ID}"
+        //nv jenkins plugin conf
+        neuvector nameOfVulnerabilityToExemptFour: '',
+        nameOfVulnerabilityToExemptOne: '', 
+        nameOfVulnerabilityToExemptThree: '', 
+        nameOfVulnerabilityToExemptTwo: '', 
+        nameOfVulnerabilityToFailFour: '', 
+        nameOfVulnerabilityToFailOne: '', 
+        nameOfVulnerabilityToFailThree: '', 
+        nameOfVulnerabilityToFailTwo: '', 
+        numberOfHighSeverityToFail: '1', 
+        numberOfMediumSeverityToFail: '3', 
+        registrySelection: 'harbor', 
+        repository: "${env.HARBOR_URL}/library/samples/spring-petclinic", 
+        scanLayers: true,
+        tag: "v1.0.${env.BUILD_ID}"
         //writeFile file: 'anchore_images', text: "${env.HARBOR_URL}/library/samples/spring-petclinic:v1.0.${env.BUILD_ID}"
         //anchore name: 'anchore_images'
       }
