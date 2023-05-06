@@ -137,7 +137,7 @@ spec:
         numberOfHighSeverityToFail: '1', 
         numberOfMediumSeverityToFail: '3', 
         registrySelection: 'harbor', 
-        repository: "${env.HARBOR_URL}/library/samples/spring-petclinic", 
+        repository: "library/samples/spring-petclinic", 
         scanLayers: true,
         tag: "v1.0.${env.BUILD_ID}"
         //writeFile file: 'anchore_images', text: "${env.HARBOR_URL}/library/samples/spring-petclinic:v1.0.${env.BUILD_ID}"
